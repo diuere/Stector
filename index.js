@@ -325,5 +325,15 @@ validateConfig();
 // Connect the bot to Discord using the bot token.
 client.login(config.token);
 
+const http = require('http');
+const port = 3000;
 
+const server = http.createServer((req, res) => {
+  res.writeHead(200);
+  res.end('Stector is awake bro!');
+})
+
+server.listen(port, () => {
+  log('info', `Keep-alive web server is running on port ${port}`);
+});
 
