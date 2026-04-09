@@ -1,0 +1,16 @@
+{
+  "name": "inspector-bot",
+  "version": "1.0.0",
+  "description": "Discord study room enforcer bot",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "discord.js": "^14.15.3",
+    "dotenv": "^16.4.5"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
