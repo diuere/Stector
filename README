@@ -1,0 +1,54 @@
+# Cam or Stream Bot
+
+A Discord bot for study servers that watches selected voice channels and moves people to an idle voice channel if they do not turn on **either** their camera or screen share within a grace period.
+
+## What it does
+
+- Watches one or more monitored voice channels.
+- Gives members a grace period.
+- Accepts **camera OR screen share** as valid.
+- Moves non-compliant members into a chosen idle channel.
+- Optionally sends a DM warning before moving them.
+- Re-checks channels on an interval so it recovers well after restarts.
+
+## Requirements
+
+- Node.js 18+
+- Bot enabled in your server
+- Bot permissions:
+  - View Channels
+  - Connect
+  - Move Members
+  - Send Messages / Create DM (optional, for warning DMs)
+
+## Setup
+
+1. Create a Discord application and bot in the Discord Developer Portal.
+2. Turn on the **Server Members Intent**
+3. Invite the bot to your server with the needed permissions.
+4. Edit the `.env` to fill your server needs.
+5. Run `npm install`.
+6. Run `npm start`.
+
+## Environment variables
+
+```env
+DISCORD_TOKEN=your-bot-token
+GUILD_ID=your-server-id
+MONITORED_CHANNEL_IDS=voice_channel_id_1,voice_channel_id_2
+IDLE_CHANNEL_ID=idle_voice_channel_id
+GRACE_PERIOD_SECONDS=150
+CHECK_INTERVAL_SECONDS=10
+DM_WARNINGS=true
+LOG_LEVEL=info
+```
+
+## How to get the IDs
+
+1. In Discord, enable **Developer Mode** in Advanced settings.
+2. Right-click your server and channels.
+3. Click **Copy Server ID** or **Copy Channel ID**.
+
+## Important note
+
+This bot detects the **state flags** for camera and streaming. It does **not** view, record, or receive the actual camera or screen content.
